@@ -1,26 +1,12 @@
-/* 5. Construir el algoritmo que lea por teclado dos números,
-si el primero es mayor al segundo informar su suma y
-diferencia, en caso contrario, informar el producto y la
-división del primero respecto al segundo. */
-n1 = prompt("Ingresa el primer número");
-n2 = prompt("Ingresa el segundo número");
-parseFloat(n1);
-parseFloat(n2);
-if(n1 > n2){
-    alert("La suma de los digitos da como resultado " + (parseFloat(n1) + parseFloat(n2)) + "\nLa resta de los digitos da como resultado " + (parseFloat(n1) - parseFloat(n2)));
-    setTimeout(function(){
-        window.location.reload();
-     }, 1000);
+/* 3. Construir el algoritmo para determinar el voltaje de un
+circuito a partir de la resistencia y la intensidad de corriente.*/
+a = prompt("Inserte el valor que tiene la resistencia (en Ohmios Ω)");
+b = prompt("Digita la intensidad de la corriente (en voltios)");
+parseFloat(a);
+parseFloat(b);
+function operacion (b, a){
+    return b*a;
 }
-else if(n1 < n2){
-    alert("El producto entre los digitos da como resultado "+ (parseFloat(n1) * parseFloat(n2)) + "\nLa division da como resultado " + (parseFloat(n1) / parseFloat(n2)).toFixed(3));
-    setTimeout(function(){
-        window.location.reload();
-     }, 1000);
-}
-else{
-    alert("Digita valores validos");
-    setTimeout(function(){
-        window.location.reload();
-     }, 1000);
-}
+var voltaje = operacion(b, a);
+
+alert("Segun la resistencia de " + a +  "Ω aplicada en la intensidad de corriente de " + b + " voltios, el voltaje total del circuito es de " + voltaje +"V.")
