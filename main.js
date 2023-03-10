@@ -1,20 +1,12 @@
-/* 2. Dado un número indicar si es par o impar y si es mayor de 10. */
-num = prompt("Digita el numero que quieres evaluar")
-parseInt(num);
-
-if (num % 2 == 0){
-    if (num > 10){
-        alert("El numero " + num + " es par, y ademas es mayor que 10")
-    }
-    else{
-        alert("El numero " + num + " es par, y ademas es menor que 10")
-    }
+/* 3. Construir el algoritmo para determinar el voltaje de un
+circuito a partir de la resistencia y la intensidad de corriente.*/
+a = prompt("Inserte el valor que tiene la resistencia (en Ohmios Ω)");
+b = prompt("Digita la intensidad de la corriente (en voltios)");
+parseFloat(a);
+parseFloat(b);
+function operacion (b, a){
+    return b/a;
 }
-else if (num % 2 != 0){
-    if (num < 10){
-        alert("El numero " + num + " es impar, y ademas es menor que 10")
-    }
-    else{
-        alert("El numero " + num + " es impar, y ademas es mayor que 10")
-    }
-}
+var voltaje = operacion(b, a);
+voltajee = (voltaje.toFixed(3));
+alert("Segun la resistencia de " + a +  "Ω aplicada en la intensidad de corriente de " + b + " voltios, el voltaje total del circuito es de " + voltajee +"V.")
