@@ -1,28 +1,32 @@
-/* 9. N atletas han pasado a finales en salto triple en los juegos
-olímpicos femenino de 2022. Diseñe un programa que pida por
-teclado los nombres de cada atleta finalista y a su vez, sus
-marcas del salto en metros. Informar el nombre de la atleta
-campeona que se quede con la medalla de oro y si rompió
-récord, reportar el pago que será de 500 millones. El récord
-esta en 15,50 metros. */
-let nombs = [];
-let marca = [];
-do {
-    let nomb = prompt("Añade el nombre de la atleta");
-    nombs.unshift(nomb);
-    marca.unshift(parseFloat(prompt("Digita la marca de la atleta (en metros)")));
-}while(confirm("¿Deseas añadir otra atleta?"))
+/* 10. Desarrolle un programa cíclico que capture un dato
+numérico cada vez, y los vaya acumulando. El programa se
+detiene cuando el usuario digita un cero. El programa debe
+mostrar: LA SUMATORIA DE LOS VALORES, EL VALOR DEL
+PROMEDIO, CUÁNTOS VALORES FUERON DIGITADOS, MAYOR
+VALOR Y MENOR VALOR. */
+//pedimos datos y hacemos que rompa en 0 y que el 0 se acumule
+let conts = [];
+while(conts){
+    let cont = parseFloat(prompt("Digita el numero que quieres acumular (Usa el 0 cuando quieras que te deje de pedir numeros)"));
+    conts.push(cont);
+    if (cont == 0){
+        break;
+    }
+} 
+//esto es para sacar el segundo valor minimo ya que el 0 seria el valor minimo dentro del array
+let min1=min2=100;
+for(var i=0;i<conts.length;i++){
+	if(conts[i]<min1){
+		min2=min1;
+		min1=conts[i];
+    }
+    else if(conts[i]<min2){
+		min2=conts[i];
+	}
+}
 
-let marmax = Math.max(...marca);
-let marcamax = marca.indexOf(Math.max(...marca));
-console.log(nombs[marcamax], "fue la atleta campeona al tener la marca mas alta, con " + Math.max(...marca) + " metros")
-
-if(marmax > 15.50){
-    console.log("FELICITACIONES, HAS SUPERADO EL RECORD DE 15.50m, POR LO TANTO RECIBIRAS UN PAGO DE 500 BOLIVARES :3");
-}
-else if(marmax == 15.50){
-    console.log("Has igualado el record actual, felicitaciones, tendras que esforzarte un poco mas para la proxima");
-}
-else{
-    console.log("Aunque hayas salido campeona actual, no rompiste el record, ja ja ja")
-}
+let noCero = conts.pop();//elimino el 0 del array con el pop teniendo en cuenta que tenia los valores pusheando (const.push)
+const suma2 = conts.reduce((anterior, actual) => anterior + actual, 0); //sumo todos los valores del array
+let prom = suma2 / conts.length; //saco el promedio dividiendo la suma total con el numero de digitos, teniendo en cuenta que el 0 ya no se enuentta dentro del array y no lo cuenta como un elemento a la hora de poner el const.length
+console.log(conts);
+console.log ("Fueron digitados un total de " +  conts.length + " numeros, excluyendo el 0 con el que terminaste de ingresar datos. \n\nEl numero mas alto que fue digitado es el " +  Math.max(...conts) + ".\n\nEl numero menor digitado es el " + min2 + ", excluyendo al 0. \n\nLa suma de todos los valores digitados es de " + suma2 + ".\n\nEl valor promedio es de " + prom + " dentro de la lista de numeros acumulados.");
